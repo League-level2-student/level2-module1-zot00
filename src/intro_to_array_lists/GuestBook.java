@@ -24,13 +24,22 @@ public class GuestBook implements ActionListener {
 	ArrayList<String> names = new ArrayList<String>();
 	
 	public static void main(String[] args) {
-		
+		GuestBook guestbook = new GuestBook();
+		guestbook.createUI();
 	}
-	
+
 	public void createUI() {
+		frame.setVisible(true);
 		frame.add(panel);
 		panel.add(button1);
 		panel.add(button2);
+		frame.pack();
+		names.add("Bob Banders");
+		names.add("Sandy Summers");
+		names.add("Greg Ganders");
+		names.add("Donny Doners");
+		button1.addActionListener(this);
+		button2.addActionListener(this);
 	}
 
 	@Override
@@ -38,8 +47,12 @@ public class GuestBook implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == button1) {
 			String addedName = JOptionPane.showInputDialog("Please enter a name you want to add to the list of guests.");
-		} else {
-
+			names.add(addedName);
+		} 
+		if (e.getSource() == button2) {
+			for(int i = 0; i < names.size(); i++) {
+				JOptionPane.showMessageDialog(null, names.get(i));
+			}
 		}
 	}
 }
