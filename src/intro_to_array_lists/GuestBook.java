@@ -50,9 +50,11 @@ public class GuestBook implements ActionListener {
 			names.add(addedName);
 		} 
 		if (e.getSource() == button2) {
+			String listOfNames = "";
 			for(int i = 0; i < names.size(); i++) {
-				JOptionPane.showMessageDialog(null, names.get(i));
+				listOfNames += names.get(i)+"\n";
 			}
+			JOptionPane.showMessageDialog(null, listOfNames);
 		}
 	}
 }
